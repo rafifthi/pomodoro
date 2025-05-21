@@ -2,6 +2,13 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Play, Pause, RotateCcw, StopCircle, VolumeX, Volume2 } from "lucide-react";
@@ -136,7 +143,7 @@ export default function PomodoroTimer({
   }, [minutes, seconds, mode, sessionName]);
 
   return (
-    <div className="flex flex-col items-center gap-6 p-6 rounded-2xl border dark:border-neutral-700">
+    <Card className="items-center gap-6 p-6">
       <Tabs value={mode} onValueChange={(val) => changeMode(val as ModeType)}>
         <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="pomodoro" disabled={hasStarted}>
@@ -155,8 +162,8 @@ export default function PomodoroTimer({
         <svg className="w-full h-full rotate-[-90deg]">
           <defs>
             <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#3b82f6" />
-              <stop offset="100%" stopColor="#06b6d4" />
+              <stop offset="0%" stopColor="#5946FF" />
+              <stop offset="100%" stopColor="#2B85F6" />
             </linearGradient>
           </defs>
 
@@ -164,7 +171,7 @@ export default function PomodoroTimer({
             cx="50%"
             cy="50%"
             r="100"
-            className="stroke-neutral-600"
+            className="stroke-[#1D2A3B]"
             strokeWidth="20"
             fill="none"
           />
@@ -232,6 +239,6 @@ export default function PomodoroTimer({
           <StopCircle className="w-4 h-4" />
         </Button>
       </div>
-    </div>
+    </Card>
   );
 }

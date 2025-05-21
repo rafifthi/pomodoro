@@ -2,7 +2,13 @@
 
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
 
 export type HistoryItem = {
   sessionName: string;
@@ -31,11 +37,14 @@ export default function HistoryList({
 
 
   return (
-    <div className="mt-6 w-full h-full p-6 rounded-xl max-w-sm border border-neutral-700">
-      <h3 className="text-black dark:text-white text-lg font-semibold mb-4">
-        Task History
-      </h3>
-      <ScrollArea className="h-64 rounded border border-black/20 dark:border-white/10">
+    <Card className="min-w-sm">
+      <CardHeader>
+        <CardTitle>
+          Task History
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <ScrollArea className="h-64 rounded border border-black/20 dark:border-white/10">
         {history.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full p-6 text-center text-neutral-500 dark:text-neutral-400">
             <img src="/empty-icon.svg" className="w-[64px] h-auto mt-14 mb-3" alt="" />
@@ -62,7 +71,9 @@ export default function HistoryList({
           </ul>
         )}
       </ScrollArea>
-      <Button
+      </CardContent>
+      <CardFooter>
+<Button
         variant="outline"
         className="mt-4 w-full"
         onClick={clearHistory}
@@ -70,6 +81,8 @@ export default function HistoryList({
       >
         Clear History
       </Button>
-    </div>
+      </CardFooter>
+      
+    </Card>
   );
 }
