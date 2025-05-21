@@ -24,7 +24,7 @@ export function useDailyHistory() {
           // tanggal beda → reset
           localStorage.removeItem(STORAGE_KEY)
         }
-      } catch (e) {
+      } catch {
         console.error('Failed to parse history from localStorage')
         localStorage.removeItem(STORAGE_KEY)
       }

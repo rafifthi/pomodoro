@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Play, Pause, RotateCcw, StopCircle, VolumeX, Volume2 } from "lucide-react";
+import type { HistoryItem } from "@/components/HistoryList";
 
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 
 const MODES = {
   pomodoro: 25 * 60,
@@ -19,7 +20,7 @@ type ModeType = keyof typeof MODES;
 export default function PomodoroTimer({
   setHistory,
 }: {
-  setHistory: React.Dispatch<React.SetStateAction<any[]>>;
+  setHistory: React.Dispatch<React.SetStateAction<HistoryItem[]>>;
 }) {
   const [mode, setMode] = useState<ModeType>("pomodoro");
   const [isRunning, setIsRunning] = useState(false);
